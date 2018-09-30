@@ -42,7 +42,8 @@ group by对于索引的使用在explain中的表现在extra字段，如果使用
 ipc在explain中extra字段表现为using index condition。ipc减少了回表查询的数据量
 
 ```mysql
-
+#table(col1, col2, col3, col4)  index(col1, col2)
+select * from table where col1='value' and col2 like '%part%';
 ```
 
 没有ipc的处理流程
