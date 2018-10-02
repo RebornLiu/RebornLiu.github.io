@@ -51,13 +51,13 @@
 
    ```mysql
    #session1
-start transaction;
-select * from table where count=1 lock in share mode; #hold count=1的s锁
-#session2
-start transaction;
-delete from table where count=1; #需要x锁，等待session1释放s锁
-#session1
-delete from table where count=1;#需要x锁
+   start transaction;
+   select * from table where count=1 lock in share mode; #hold count=1的s锁
+   #session2
+   start transaction;
+   delete from table where count=1; #需要x锁，等待session1释放s锁
+   #session1
+   delete from table where count=1;#需要x锁
    ```
 
    myslq控制台提示deadlock。因为session2等待session1释放s锁，session1等待session2释放x锁。这里可以看到，加锁和时间关系挺大？？，官方文档解释如下
