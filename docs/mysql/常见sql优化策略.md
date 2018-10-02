@@ -1,7 +1,8 @@
 ## mysql的常见优化
 
-1. exist和in
-2. 覆盖索引
+### in
+
+通常in可以替换为exsits，用于优化速度，not in 替换为not exsists。in也可以替换为union，in的索引是range的，union之后单个select可以降到ref级别，但是union需要使用临时表，应该是具体情况而定。
 
 ### order   by
 
