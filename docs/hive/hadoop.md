@@ -1,7 +1,7 @@
 ### namemode初始化
 
 ```bash
-hdfs namenode -f
+hdfs namenode -format
 ```
 
 ### hadoop启动后的进程
@@ -16,6 +16,17 @@ jps -l
 9148 org.apache.hadoop.yarn.server.nodemanager.NodeManager
 
 ```
+
+### Hdfs查看状态
+
+```bash
+#使用命令查看
+hdfs fsadmin -report
+
+#使用webui查看 可以使用netstat查看namenode对应的端口，然后使用localhist:port访问
+```
+
+
 
 ### hive的json操作
 
