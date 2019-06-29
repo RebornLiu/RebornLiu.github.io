@@ -16,3 +16,13 @@
 
 4. location中rewrite中不建议使用last，避免出现死循环
 
+5. rewrite的日志打开方式。 rewrite日志会写到error日志中而不是access日志
+
+   ```
+   #在server下添加
+    error_log  logs/error.log  notice;
+    rewrite_log on;
+   ```
+
+   
+
